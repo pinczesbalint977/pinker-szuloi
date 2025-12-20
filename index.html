@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Pinker Tattoo — Szülői beleegyező nyilatkozat</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+<link rel="shortcut icon" href="icon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap" id="paper">
+  <div class="header">
+    <div class="logo">
+      <img src="icon.png" alt="logo" />
+      <div>
+        <div class="title">Pinker Tattoo</div>
+        <div class="title-small">SZÜLŐI BELEEGYEZŐ NYILATKOZAT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- BAL OSZLOP -->
+    <div class="left" id="leftColumn">
+
+      <p>
+        Alulírott <input class="inline" type="text" id="szulo_nev"> (szülő) engedélyezem
+        18 év alatti gyermekem részére testékszer behelyezését / tetoválását.*
+      </p>
+
+      <p class="muted">
+        Tetováláshoz 18 éves kor alatt, piercing szúráshoz 16 éves kor alatt szülői jelenlét kötelező!
+      </p>
+
+      <label class="field">Gyermek neve:
+        <input type="text" id="gyermek_nev">
+      </label>
+
+      <label class="field">Gyermek személyi igazolvány száma:
+        <input type="text" id="gyermek_szemelyi">
+      </label>
+
+      <label class="field">Gyermek születési helye, ideje:
+        <input type="text" id="gyermek_szul">
+      </label>
+
+      <label class="field">Szülő személyi igazolvány száma:
+        <input type="text" id="szulo_szemelyi">
+      </label>
+
+      <label class="field">Piercing / Tetoválás helye:
+        <input type="text" id="hely">
+      </label>
+
+      <p class="small">
+        A testékszer behelyezésével / tetoválással kapcsolatos felvilágosítást megkaptam és tudomásul vettem.<br><br>
+        Gyermekem piercing behelyezését / tetoválását kizáró okról vagy betegségről nem tudok.
+      </p>
+
+      <label class="field">Elérhetőségi telefonszám:
+        <input type="text" id="telefon">
+      </label>
+
+      <label class="field">Kelt:
+        <input type="date" id="datum">
+      </label>
+
+      <!-- ALÁÍRÁS -->
+      <div style="margin-top:20px">
+        <strong>Szülő aláírása:</strong>
+        <div class="sig-wrap">
+          <canvas id="sigCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="tattosigno">
+        <h3>Tetováló aláírása:</h3>
+        <img src="signo.png" alt="">
+      </div>
+
+      <div class="sig-buttons">
+        <button type="button" id="clearSig" class="secondary">Aláírás törlése</button>
+        <button type="button" id="saveBtn" class="save-btn">Mentés PDF-be</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="card">
+    <h3>Köszönjük!</h3>
+    <p>A nyilatkozat mentése sikeres.</p>
+    <button id="modalClose">OK</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
