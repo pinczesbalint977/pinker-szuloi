@@ -87,7 +87,34 @@ document.getElementById('saveBtn').onclick = async ()=>{
   });
 
   pdf.addImage(img.toDataURL(),'PNG',0,0,img.width,img.height);
-  pdf.save("Szülői_beleegyező_nyilatkozat.pdf");
+  
+  const szuloNev = document.getElementById('szulo_nev').value.trim();
+const gyermekNev = document.getElementById('gyermek_nev').value.trim();
+
+if(!szuloNev){
+  alert("A szülő neve kötelező!");
+  return;
+}
+
+// fájlnév tisztítása
+function safe(str){
+  return str
+    .toLowerCase()
+    .replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i')
+    .replace(/ó|ö|ő/g,'o').replace(/ú|ü|ű/g,'u')
+    .replace(/[^a-z0-9]/g,'_');
+}
+
+let fileName = `Szulo_beleegyezo_${safe(szuloNev)}`;
+
+if(gyermekNev){
+  fileName += `_gyermek_${safe(gyermekNev)}`;
+}
+
+fileName += '.pdf';
+
+pdf.save(fileName);
+
 
   document.getElementById('modal').classList.add('show');
 };
